@@ -12,6 +12,8 @@ enum class DutyDay(
     SATURDAY("토",5),
     SUNDAY("일",6);
 
+    fun getDayOfWeek(): String = this.date
+
     companion object {
 
         fun getDutyDayFromDate(date:String): DutyDay{
