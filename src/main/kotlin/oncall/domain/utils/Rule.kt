@@ -9,7 +9,6 @@ object Rule {
     const val MIN_MONTH = 1
     const val MAX_MONTH = 7
 
-
     const val MONTH_UNIT = "월"
     const val DAY_UNIT = "일"
 

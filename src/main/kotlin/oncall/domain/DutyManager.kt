@@ -1,6 +1,6 @@
 package oncall.domain
 
-import oncall.domain.model.DayOfWeek
+import oncall.domain.model.DutyDayOfWeek
 
 class DutyManager(
     private val weekDayWorkers: List<String>,
@@ -24,12 +24,12 @@ class DutyManager(
         val calendars = calendar.getDutyCalendar()
         calendars.forEach { calendar ->
             when (calendar.getDayOfWeek()) {
-                DayOfWeek.WEEKDAY -> {
+                DutyDayOfWeek.WEEKDAY -> {
                     allocateWeekDay(weekDayIdx)
                     weekDayIdx += 1
                 }
 
-                DayOfWeek.HOLIDAY, DayOfWeek.WEEKEND -> {
+                DutyDayOfWeek.HOLIDAY, DutyDayOfWeek.WEEKEND -> {
                     allocateHoliday(holidayIdx)
                     holidayIdx += 1
                 }
