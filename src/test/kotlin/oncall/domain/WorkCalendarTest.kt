@@ -37,4 +37,5 @@ class WorkCalendarTest {
         )
         assertThat(workCalendar.getHolidayMessage()=="")
     }
+
 }

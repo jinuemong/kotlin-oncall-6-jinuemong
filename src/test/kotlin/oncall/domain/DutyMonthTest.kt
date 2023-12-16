@@ -34,4 +34,5 @@ class DutyMonthTest {
             DutyMonth.getMaxDayFromMonth(13)
         }
     }
+
 }
