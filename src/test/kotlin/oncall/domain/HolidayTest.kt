@@ -22,4 +22,5 @@ class HolidayTest {
     fun `검사 값이 휴일이 아닌 경우 테스트`(){
         assertThat(Holiday.checkIsHoliday(1,2))
     }
+
 }
