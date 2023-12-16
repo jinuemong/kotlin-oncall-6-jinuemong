@@ -1,6 +1,6 @@
 package oncall.domain
 
-import oncall.domain.model.DayOfWeek
+import oncall.domain.model.DutyDayOfWeek
 import oncall.domain.model.DutyDay
 import oncall.domain.utils.Error
 import oncall.domain.utils.Rule
@@ -120,7 +120,7 @@ class DutyVerifier {
     private fun checkDayOfWeek(date: String): Boolean {
         return try {
             val dutyDay = DutyDay.getDutyDayFromDate(date)
-            DayOfWeek.getDayOfWeekFromDutyDay(dutyDay, false)
+            DutyDayOfWeek.getDayOfWeekFromDutyDay(dutyDay, false)
             true
         } catch (e: IllegalArgumentException) {
             println(e.message)
