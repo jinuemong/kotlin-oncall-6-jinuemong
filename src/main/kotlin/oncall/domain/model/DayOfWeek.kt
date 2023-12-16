@@ -1,5 +1,7 @@
 package oncall.domain.model
 
+import oncall.domain.utils.Error
+
 enum class DayOfWeek(
     private val info: String
 ) {
@@ -27,7 +29,7 @@ enum class DayOfWeek(
 
                 DutyDay.SATURDAY, DutyDay.SUNDAY -> WEEKEND
 
-                else -> throw IllegalArgumentException() // 예외상황 추가
+                else -> throw IllegalArgumentException(Error.ERR_DUTY_DAT_OF_WEEK)
             }
 
 
