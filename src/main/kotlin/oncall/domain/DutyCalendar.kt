@@ -35,11 +35,11 @@ class DutyCalendar(
     ): WorkCalendar {
         val dutyDay = DutyDay.getDutyDayFromIdx(idx)
         val isHoliday = Holiday.checkIsHoliday(month, day)
-        val dayOfWeek = DayOfWeek.getDayOfWeekFromDutyDay(dutyDay, isHoliday)
+        val dutyDayOfWeek = DutyDayOfWeek.getDayOfWeekFromDutyDay(dutyDay, isHoliday)
         return WorkCalendar(
             day = day,
             dutyDay = dutyDay,
-            dayOfWeek = dayOfWeek
+            dutyDayOfWeek = dutyDayOfWeek
         )
     }
 

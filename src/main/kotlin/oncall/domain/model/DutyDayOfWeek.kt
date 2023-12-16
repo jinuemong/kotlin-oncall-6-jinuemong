@@ -2,7 +2,7 @@ package oncall.domain.model
 
 import oncall.domain.utils.Error
 
-enum class DayOfWeek(
+enum class DutyDayOfWeek(
     private val info: String
 ) {
 
@@ -19,7 +19,7 @@ enum class DayOfWeek(
         fun getDayOfWeekFromDutyDay(
             dutyDay: DutyDay?,
             isHoliday: Boolean
-        ): DayOfWeek {
+        ): DutyDayOfWeek {
 
             if (isHoliday) return HOLIDAY
 
