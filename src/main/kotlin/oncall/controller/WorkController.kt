@@ -2,7 +2,6 @@ package oncall.controller
 
 import oncall.domain.DutyCalendar
 import oncall.domain.DutyManager
-import oncall.domain.model.Calendar
 import oncall.view.InputView
 import oncall.view.OutputView
 
@@ -13,18 +12,18 @@ class WorkController(
     private lateinit var dutyCalendar: DutyCalendar
     private lateinit var dutyManager: DutyManager
 
-    fun userFlow(){
+    fun userFlow() {
         makeCalendar()
         makeManager()
         result()
     }
 
-    private fun makeCalendar(){
-        val (month,day) = inputView.inputDay()
-        dutyCalendar = DutyCalendar(month.toInt(),day)
+    private fun makeCalendar() {
+        val (month, day) = inputView.inputDay()
+        dutyCalendar = DutyCalendar(month.toInt(), day)
     }
 
-    private fun makeManager(){
+    private fun makeManager() {
         val weekWorker = inputView.inputWeekDayWorker()
         val holidayWorker = inputView.inputHolliDayWorker()
         dutyManager = DutyManager(
@@ -34,7 +33,7 @@ class WorkController(
         )
     }
 
-    private fun result(){
+    private fun result() {
         val table = dutyManager.getTable()
         val calendar = dutyCalendar.getDutyCalendar()
         val currentMonth = dutyCalendar.getCurrentMonth()
@@ -47,6 +46,5 @@ class WorkController(
             )
         }
     }
-
 
 }

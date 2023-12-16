@@ -17,7 +17,7 @@ class DutyCalendar(
         return calendar
     }
 
-    fun getCurrentMonth(): Int{
+    fun getCurrentMonth(): Int {
         return month
     }
 

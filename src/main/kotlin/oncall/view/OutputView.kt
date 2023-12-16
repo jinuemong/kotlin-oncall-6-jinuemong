@@ -1,7 +1,6 @@
 package oncall.view
 
 import oncall.domain.model.Calendar
-import oncall.domain.model.DayOfWeek
 import oncall.domain.utils.Rule
 
 class OutputView {
