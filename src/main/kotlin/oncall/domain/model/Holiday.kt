@@ -5,6 +5,7 @@ enum class Holiday(
     private val day: Int,
     message: String,
 ) {
+
     THEOCRACY(1, 1, "신정"),
     INDEPENDENCE(3, 1, "삼일절"),
     CHILDREN(5, 5, "어린이날"),
