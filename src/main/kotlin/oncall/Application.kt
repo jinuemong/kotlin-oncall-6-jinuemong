@@ -1,5 +1,10 @@
 package oncall
 
+import oncall.domain.DutyCalendar
+
 fun main() {
-    TODO("프로그램 구현")
+    val calendar = DutyCalendar(5,"월")
+    calendar.getDutyCalendar().forEach {
+        println(it.day.toString()+","+it.dutyDay+","+it.dayOfWeek)
+    }
 }
