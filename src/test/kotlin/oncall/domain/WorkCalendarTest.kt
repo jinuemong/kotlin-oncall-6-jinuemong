@@ -1,6 +1,6 @@
 package oncall.domain
 
-import oncall.domain.model.DayOfWeek
+import oncall.domain.model.DutyDayOfWeek
 import oncall.domain.model.DutyDay
 import oncall.domain.model.WorkCalendar
 import org.assertj.core.api.Assertions.assertThat
@@ -13,7 +13,7 @@ class WorkCalendarTest {
         val workCalendar = WorkCalendar(
             day = 7,
             dutyDay  = DutyDay.SATURDAY,
-            dayOfWeek = DayOfWeek.WEEKEND
+            dutyDayOfWeek = DutyDayOfWeek.WEEKEND
         )
         assertThat(workCalendar.getHolidayMessage()=="")
     }
@@ -23,7 +23,7 @@ class WorkCalendarTest {
         val workCalendar = WorkCalendar(
             day = 5,
             dutyDay  = DutyDay.FRIDAY,
-            dayOfWeek = DayOfWeek.HOLIDAY
+            dutyDayOfWeek = DutyDayOfWeek.HOLIDAY
         )
         assertThat(workCalendar.getHolidayMessage()=="(휴일)")
     }
@@ -33,7 +33,7 @@ class WorkCalendarTest {
         val workCalendar = WorkCalendar(
             day = 1,
             dutyDay  = DutyDay.MONDAY,
-            dayOfWeek = DayOfWeek.WEEKDAY
+            dutyDayOfWeek = DutyDayOfWeek.WEEKDAY
         )
         assertThat(workCalendar.getHolidayMessage()=="")
     }
