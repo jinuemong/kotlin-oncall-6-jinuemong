@@ -4,7 +4,7 @@ import oncall.domain.utils.Error
 
 enum class DutyMonth(
     private val month: Int,
-    private val maxDay: Int
+    private val lastDay: Int
 ) {
 
     JAN(1, 31),
@@ -22,7 +22,7 @@ enum class DutyMonth(
 
     companion object {
         fun getMaxDayFromMonth(month: Int): Int {
-            return entries.find { it.month == month }?.maxDay
+            return entries.find { it.month == month }?.lastDay
                 ?: throw IllegalArgumentException(Error.ERR_DUTY_MONTH)
         }
     }
