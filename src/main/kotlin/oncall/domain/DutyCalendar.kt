@@ -6,15 +6,15 @@ import oncall.domain.utils.Rule
 class DutyCalendar(
     private val month: Int,
     private val dayOfWeek: String,
-    private val calendar: MutableList<Calendar> = mutableListOf()
+    private val workCalendar: MutableList<WorkCalendar> = mutableListOf()
 ) {
 
     init {
         makeCalendar()
     }
 
-    fun getDutyCalendar(): List<Calendar> {
-        return calendar
+    fun getDutyCalendar(): List<WorkCalendar> {
+        return workCalendar
     }
 
     fun getCurrentMonth(): Int {
@@ -24,7 +24,7 @@ class DutyCalendar(
     private fun makeCalendar() {
         var dutyIdx = DutyDay.getDutyIdx(dayOfWeek)
         repeat(DutyMonth.getMaxDayFromMonth(month)) { idx ->
-            calendar.add(makeNewCalendar(idx + 1, dutyIdx % Rule.WEEK_LENGTH))
+            workCalendar.add(makeNewCalendar(idx + 1, dutyIdx % Rule.WEEK_LENGTH))
             dutyIdx += 1
         }
     }
@@ -32,11 +32,11 @@ class DutyCalendar(
     private fun makeNewCalendar(
         day: Int,
         idx: Int
-    ): Calendar {
+    ): WorkCalendar {
         val dutyDay = DutyDay.getDutyDayFromIdx(idx)
         val isHoliday = Holiday.checkIsHoliday(month, day)
         val dayOfWeek = DayOfWeek.getDayOfWeekFromDutyDay(dutyDay, isHoliday)
-        return Calendar(
+        return WorkCalendar(
             day = day,
             dutyDay = dutyDay,
             dayOfWeek = dayOfWeek
