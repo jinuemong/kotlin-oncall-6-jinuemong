@@ -1,6 +1,7 @@
 package oncall.domain
 
 import oncall.domain.model.DutyMonth
+import oncall.domain.utils.Error
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -28,7 +29,7 @@ class DutyMonthTest {
 
     @Test
     fun `부정확한 달 입력 시 예외 테스트`(){
-        assertThrows<IllegalArgumentException> {
+        assertThrows<IllegalArgumentException>(Error.ERR_DUTY_MONTH) {
             DutyMonth.getMaxDayFromMonth(0)
             DutyMonth.getMaxDayFromMonth(13)
         }
