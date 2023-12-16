@@ -6,11 +6,15 @@ class DutyManager(
     private val weekDayWorkers: List<String>,
     private val holidayWorkers: List<String>,
     private val calendar: DutyCalendar,
-    val allocationTable: MutableList<String> = mutableListOf()
+    private val allocationTable: MutableList<String> = mutableListOf()
 ) {
 
     init {
         allocateWork()
+    }
+
+    fun getTable(): List<String>{
+        return allocationTable
     }
 
     private fun allocateWork() {

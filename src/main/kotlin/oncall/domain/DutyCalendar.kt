@@ -17,6 +17,10 @@ class DutyCalendar(
         return calendar
     }
 
+    fun getCurrentMonth(): Int{
+        return month
+    }
+
     private fun makeCalendar() {
         var dutyIdx = DutyDay.getDutyIdx(dayOfWeek)
         repeat(DutyMonth.getMaxDayFromMonth(month)) { idx ->

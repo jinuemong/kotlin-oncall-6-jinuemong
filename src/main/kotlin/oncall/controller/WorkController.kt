@@ -4,15 +4,19 @@ import oncall.domain.DutyCalendar
 import oncall.domain.DutyManager
 import oncall.domain.model.Calendar
 import oncall.view.InputView
+import oncall.view.OutputView
 
 class WorkController(
     private val inputView: InputView,
+    private val outputView: OutputView
 ) {
-    lateinit var dutyCalendar: DutyCalendar
-    lateinit var dutyManager: DutyManager
+    private lateinit var dutyCalendar: DutyCalendar
+    private lateinit var dutyManager: DutyManager
 
     fun userFlow(){
         makeCalendar()
+        makeManager()
+        result()
     }
 
     private fun makeCalendar(){
@@ -29,5 +33,20 @@ class WorkController(
             dutyCalendar
         )
     }
+
+    private fun result(){
+        val table = dutyManager.getTable()
+        val calendar = dutyCalendar.getDutyCalendar()
+        val currentMonth = dutyCalendar.getCurrentMonth()
+
+        calendar.zip(table).forEach { (calendar, worker) ->
+            outputView.dayResult(
+                currentMonth,
+                calendar,
+                worker
+            )
+        }
+    }
+
 
 }
