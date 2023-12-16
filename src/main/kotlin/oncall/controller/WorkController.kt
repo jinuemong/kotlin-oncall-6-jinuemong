@@ -21,26 +21,26 @@ class WorkController(
     }
 
     private fun makeCalendar() {
-        while (!::dutyCalendar.isInitialized){
+        while (!::dutyCalendar.isInitialized) {
             try {
                 val userInput = inputView.inputDay()
                 dutyVerifier.checkDay(userInput)
 
-                val (month,day) = userInput
+                val (month, day) = userInput
                 dutyCalendar = DutyCalendar(month.toInt(), day)
-            } catch (e: IllegalArgumentException){
+            } catch (e: IllegalArgumentException) {
                 println(e.message)
             }
         }
     }
 
     private fun makeManager() {
-        while (!::dutyManager.isInitialized){
+        while (!::dutyManager.isInitialized) {
             try {
                 val weekWorker = inputView.inputWeekDayWorker()
                 val holidayWorker = inputView.inputHolliDayWorker()
-                dutyVerifier.checkWorkerDuplicate(weekWorker,holidayWorker)
-                dutyVerifier.checkWorkerComposition(weekWorker.toSet(),holidayWorker.toSet())
+                dutyVerifier.checkWorkerDuplicate(weekWorker, holidayWorker)
+                dutyVerifier.checkWorkerComposition(weekWorker.toSet(), holidayWorker.toSet())
                 dutyVerifier.checkWorkerNames(weekWorker)
 
                 dutyManager = DutyManager(
@@ -48,7 +48,7 @@ class WorkController(
                     holidayWorker,
                     dutyCalendar
                 )
-            } catch (e: IllegalArgumentException){
+            } catch (e: IllegalArgumentException) {
                 println(e.message)
             }
         }
