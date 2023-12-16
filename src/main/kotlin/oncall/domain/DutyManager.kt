@@ -83,8 +83,6 @@ class DutyManager(
     private fun checkTableSize(): Boolean = allocationTable.size >= 2
 
     private fun getPrevName(): String = allocationTable.last().toString()
-
     private fun getDoublePrevName(): String = allocationTable[allocationTable.size - 2]
-
 
 }

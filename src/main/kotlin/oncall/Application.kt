@@ -1,8 +1,6 @@
 package oncall
 
 import oncall.controller.WorkController
-import oncall.domain.DutyCalendar
-import oncall.domain.DutyManager
 import oncall.view.InputView
 import oncall.view.OutputView
 
