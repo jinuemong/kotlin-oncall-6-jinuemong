@@ -19,7 +19,6 @@ class DutyCalendar(
     private fun makeCalendar() {
         var dutyIdx = DutyDay.getDutyIdx(dayOfWeek)
         repeat(DutyMonth.getMaxDayFromMonth(month)) { idx ->
-
             calendar.add(makeNewCalendar(idx+1,dutyIdx%7))
             dutyIdx+=1
         }
