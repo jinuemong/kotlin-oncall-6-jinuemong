@@ -1,5 +1,7 @@
 package oncall.domain.model
 
+import oncall.domain.utils.Error
+
 enum class DutyDay(
     private val date: String,
     private val dutyIdx: Int
@@ -19,17 +21,17 @@ enum class DutyDay(
 
         fun getDutyDayFromDate(date: String): DutyDay {
             return entries.find { it.date == date }
-                ?: throw IllegalArgumentException() // 여기에 에러 메시지 추가
+                ?: throw IllegalArgumentException(Error.ERR_DUTY_DAT_DATE)
         }
 
         fun getDutyDayFromIdx(idx: Int): DutyDay {
             return entries.find { it.dutyIdx == idx }
-                ?: throw IllegalArgumentException() // 여기에 에러 메시지 추가
+                ?: throw IllegalArgumentException(Error.ERR_DUTY_DAT_DATE)
         }
 
         fun getDutyIdx(date: String): Int {
             return entries.find { it.date == date }?.dutyIdx
-                ?: throw IllegalArgumentException() // 여기에 에러 메시지 추가
+                ?: throw IllegalArgumentException(Error.ERR_DUTY_DAT_DATE)
         }
 
     }
