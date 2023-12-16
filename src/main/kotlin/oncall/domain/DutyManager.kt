@@ -23,7 +23,7 @@ class DutyManager(
 
         val calendars = calendar.getDutyCalendar()
         calendars.forEach { calendar ->
-            when (calendar.dayOfWeek) {
+            when (calendar.getDayOfWeek()) {
                 DayOfWeek.WEEKDAY -> {
                     allocateWeekDay(weekDayIdx)
                     weekDayIdx += 1
