@@ -3,6 +3,7 @@ package oncall.domain.model
 enum class DayOfWeek(
     private val info: String
 ) {
+
     WEEKDAY("평일"),
     WEEKEND("주말"),
     HOLIDAY("휴일");
