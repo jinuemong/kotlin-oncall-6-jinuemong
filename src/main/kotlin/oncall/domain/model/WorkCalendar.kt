@@ -2,7 +2,7 @@ package oncall.domain.model
 
 import oncall.domain.utils.Rule
 
-class Calendar(
+class WorkCalendar(
     private val day: Int,
     private val dutyDay: DutyDay,
     private val dayOfWeek: DayOfWeek,
