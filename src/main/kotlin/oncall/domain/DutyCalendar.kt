@@ -1,4 +1,10 @@
 package oncall.domain
 
-class DutyCalendar {
+class DutyCalendar(
+    private val month : Int,
+    private val dayOfWeek: Int
+) {
+
+
+
 }
