@@ -9,6 +9,8 @@ enum class DayOfWeek(
 
     fun getInfo(): String = this.info
 
+    fun isHoliday(): Boolean = this == HOLIDAY
+
     companion object {
 
         fun getDayOfWeekFromDutyDay(
