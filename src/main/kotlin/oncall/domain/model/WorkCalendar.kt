@@ -12,7 +12,7 @@ class WorkCalendar(
     fun getMonthDayMessage(): String = "${day}${Rule.DAY_UNIT}"
     fun getDayOfWeekMessage(): String = dutyDay.getDayOfWeek()
     fun getHolidayMessage(): String {
-        if (dutyDayOfWeek.isHoliday()) return "(${dutyDayOfWeek.getInfo()})"
+        if (dutyDayOfWeek.isHoliday() && DutyDay.checkIsWeekday(dutyDay)) return "(${dutyDayOfWeek.getInfo()})"
         return ""
     }
 

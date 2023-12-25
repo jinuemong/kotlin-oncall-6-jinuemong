@@ -19,6 +19,10 @@ enum class DutyDay(
 
     companion object {
 
+        fun checkIsWeekday(dutyDay: DutyDay): Boolean {
+            return !(dutyDay == SUNDAY || dutyDay == SATURDAY)
+        }
+
         fun getDutyDayFromDate(date: String): DutyDay {
             return entries.find { it.date == date }
                 ?: throw IllegalArgumentException(Error.ERR_DUTY_DAT_DATE)
